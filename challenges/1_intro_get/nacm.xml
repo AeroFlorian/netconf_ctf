@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<nacm xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-acm">
+  <enable-nacm>true</enable-nacm>
+  <groups>
+    <group>
+      <name>guest</name>
+      <user-name>ctf_netconf</user-name>
+    </group>
+  </groups>
+  <rule-list>
+    <name>deny-all</name>
+    <group>guest</group>
+    <rule>
+        <name>allow-get-chall-1</name>
+        <module-name>module-containing-flag</module-name>
+        <access-operations>read</access-operations>
+        <action>permit</action>
+        <comment>
+            Allow guests to read the challenge 1 data.
+        </comment>
+    </rule>
+    <rule>
+        <name>deny-sysrepo</name>
+        <module-name>*</module-name>
+        <access-operations>*</access-operations>
+        <action>deny</action>
+        <comment>
+               Do not allow guests any access to the netconf
+               monitoring information.
+           </comment>
+      </rule>
+  </rule-list>
+</nacm>

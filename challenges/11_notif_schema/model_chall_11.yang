@@ -1,0 +1,25 @@
+module hidden-module {
+    yang-version 1.1;
+    namespace "urn:hidden-module:1.0";
+  prefix "hidden-module";
+
+  contact
+    "florian.salaun@nokia.com";
+
+  description
+    "Basic model used for a CTF aiming at make people familiar with NETCONF
+    The flag you are looking for is
+    NOKCTF{SET_FLAG_FOR_CHALL_11}!";
+
+  revision "2024-07-11" {
+   description "Creation";
+  }
+
+  notification the-flag-is-in-the-schema-not-here {
+      leaf flag {
+        type string;
+        description "Not The flag";
+      }
+      description "Notification sent periodically to tell the user the flag is in the schema";
+  }
+}

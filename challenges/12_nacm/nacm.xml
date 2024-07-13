@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<nacm xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-acm">
+  <enable-nacm>true</enable-nacm>
+  <groups>
+    <group>
+      <name>guest</name>
+      <user-name>ctf_netconf</user-name>
+    </group>
+  </groups>
+  <rule-list>
+    <name>deny-all</name>
+    <group>guest</group>
+    <rule>
+        <name>remove-permission</name>
+        <module-name>module-containing-flag</module-name>
+        <access-operations>*</access-operations>
+        <action>deny</action>
+        <comment>
+            Do not allow guests to get the data!.
+        </comment>
+    </rule>
+    <rule>
+      <name>allow-set</name>
+      <module-name>ietf-netconf-acm</module-name>
+      <access-operations>*</access-operations>
+      <action>permit</action>
+      <comment>
+          Allow guests to modify Rules for NACM
+      </comment>
+  </rule>
+
+  </rule-list>
+</nacm>

@@ -1,0 +1,6 @@
+<flag-container xmlns="urn:module-flag:1.0">
+    <objects-to-modify>
+        <name>IamTheCreator</name>
+        <set-me-to-get-the-flag>false</set-me-to-get-the-flag>
+    </objects-to-modify>
+</flag-container>
